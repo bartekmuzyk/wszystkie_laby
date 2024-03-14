@@ -56,14 +56,19 @@ def zadanie_03(): Unit = {
 }
 
 def divide[A](l: List[A]): (List[A], List[A]) = {
+  @tailrec
+  def rep(source: List[A], left: List[A], right: List[A], flag: Boolean): (List[A], List[A]) = source match
+    case head :: rest => if flag then rep(rest, head :: left, right, false) else rep(rest, left, head :: right, true)
+    case Nil => (left.reverse, right.reverse)
 
+  rep(l, Nil, Nil, true)
 }
 
 @main
 def zadanie_04(): Unit = {
   val lista = List(1, 3, 5, 6, 7)
 
-  divide(lista) // ==> ( List(1, 5, 7), List(3, 6) )
+  println(divide(lista))
 }
 
 // Zadanie 5
