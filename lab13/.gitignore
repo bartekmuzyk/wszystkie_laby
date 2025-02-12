@@ -1,0 +1,11 @@
+.ammonite/
+.bloop/
+.bsp/
+.metals/
+.vscode/
+project/project/
+project/metals.sbt
+target/
+.DS_Store
+metals.sbt
+
